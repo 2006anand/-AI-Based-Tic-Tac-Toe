@@ -176,34 +176,34 @@ function App() {
   };
 
   return (
-    
-      
-        
-          
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
+      <div className="max-w-2xl w-full">
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
+          <h1 className="text-4xl font-bold text-white text-center mb-8">
             AI Tic-Tac-Toe
-          
+          </h1>
 
-          
-            
-              
-              {scores.player}
-              You (X)
-            
-            
-              
-              {scores.draws}
-              Draws
-            
-            
-              
-              {scores.ai}
-              AI (O)
-            
-          
+          <div className="grid grid-cols-3 gap-4 mb-6">
+            <div className="bg-blue-500/20 rounded-xl p-4 text-center border border-blue-400/30">
+              <User className="w-6 h-6 mx-auto mb-2 text-blue-300" />
+              <div className="text-2xl font-bold text-white">{scores.player}</div>
+              <div className="text-xs text-blue-200">You (X)</div>
+            </div>
+            <div className="bg-purple-500/20 rounded-xl p-4 text-center border border-purple-400/30">
+              <Trophy className="w-6 h-6 mx-auto mb-2 text-purple-300" />
+              <div className="text-2xl font-bold text-white">{scores.draws}</div>
+              <div className="text-xs text-purple-200">Draws</div>
+            </div>
+            <div className="bg-pink-500/20 rounded-xl p-4 text-center border border-pink-400/30">
+              <Brain className="w-6 h-6 mx-auto mb-2 text-pink-300" />
+              <div className="text-2xl font-bold text-white">{scores.ai}</div>
+              <div className="text-xs text-pink-200">AI (O)</div>
+            </div>
+          </div>
 
-          
-            Difficulty Level
-            
+          <div className="mb-6">
+            <label className="text-white text-sm font-medium mb-2 block">Difficulty Level</label>
+            <div className="grid grid-cols-3 gap-2">
               {['easy', 'medium', 'unbeatable'].map(level => (
                 <button
                   key={level}
@@ -218,13 +218,13 @@ function App() {
                   }`}
                 >
                   {level.charAt(0).toUpperCase() + level.slice(1)}
-                
+                </button>
               ))}
-            
-          
+            </div>
+          </div>
 
-          
-            
+          <div className="bg-white/5 rounded-2xl p-4 mb-6">
+            <div className="grid grid-cols-3 gap-3">
               {board.map((cell, index) => (
                 <button
                   key={index}
@@ -241,41 +241,47 @@ function App() {
                   } border border-white/20`}
                 >
                   {cell}
-                
+                </button>
               ))}
-            
-          
+            </div>
+          </div>
 
           {thinking && (
-            
+            <div className="text-center text-purple-300 mb-4 animate-pulse">
               AI is thinking...
-            
+            </div>
           )}
 
           {gameOver && (
-            
-              
+            <div className="text-center mb-4">
+              <div className="text-2xl font-bold text-white mb-2">
                 {winner ? (
                   winner.winner === 'X' ? '🎉 You Win!' : '🤖 AI Wins!'
                 ) : (
                   "🤝 It's a Draw!"
                 )}
-              
-            
+              </div>
+            </div>
           )}
 
-          
-            
-              
+          <div className="flex gap-3">
+            <button
+              onClick={resetGame}
+              className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-medium hover:shadow-lg transition-all flex items-center justify-center gap-2"
+            >
+              <RotateCcw className="w-5 h-5" />
               New Game
-            
-            
+            </button>
+            <button
+              onClick={resetScores}
+              className="bg-white/10 text-white py-3 px-6 rounded-xl font-medium hover:bg-white/20 transition-all border border-white/20"
+            >
               Reset Scores
-            
-          
-        
-      
-    
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
