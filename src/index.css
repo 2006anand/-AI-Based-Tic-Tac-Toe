@@ -1,1 +1,36 @@
+### `src/index.css`
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+```
+
+### `src/App.jsx`
+```javascript
+import React from 'react';
+import TicTacToe from './components/TicTacToe';
+
+function App() {
+  return ;
+}
+
+export default App;
+```
