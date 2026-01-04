@@ -44,10 +44,10 @@ function App() {
       for (let i = 0; i < 9; i++) {
         if (squares[i] === null) {
           squares[i] = 'O';
-          const eval = minimax(squares, depth + 1, false, alpha, beta);
+          const evaluation = minimax(squares, depth + 1, false, alpha, beta);
           squares[i] = null;
-          maxEval = Math.max(maxEval, eval);
-          alpha = Math.max(alpha, eval);
+          maxEval = Math.max(maxEval, evaluation);
+          alpha = Math.max(alpha, evaluation);
           if (beta <= alpha) break;
         }
       }
@@ -57,10 +57,10 @@ function App() {
       for (let i = 0; i < 9; i++) {
         if (squares[i] === null) {
           squares[i] = 'X';
-          const eval = minimax(squares, depth + 1, true, alpha, beta);
+          const evaluation = minimax(squares, depth + 1, true, alpha, beta);
           squares[i] = null;
-          minEval = Math.min(minEval, eval);
-          beta = Math.min(beta, eval);
+          minEval = Math.min(minEval, evaluation);
+          beta = Math.min(beta, evaluation);
           if (beta <= alpha) break;
         }
       }
